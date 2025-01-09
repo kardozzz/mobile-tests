@@ -1,62 +1,79 @@
 plugins {
     id 'java-library'
-    id 'io.qameta.allure' version '2.11.2'
-    id "io.freefair.lombok" version "6.0.0-m2"
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 repositories {
     mavenCentral()
 }
 
-def restAssuredVersion = "5.3.1",
-    allureVersion = "2.21.0",
+def aspectjWeaverVersion = "1.9.22",
+    selenideVersion = "6.13.0",
+    restAssuredVersion = "5.5.0",
+    allureSelenideVersion = "2.17.3",
+    junitVersion = "5.9.3",
+    slf4jVersion = "2.0.7",
     appiumVersion = "8.3.0",
-    selenideVersion = "6.13.0"
+    ownerVersion = "1.0.12",
+    commonsIoVersion = '2.14.0',
+    assertjVersion = "3.26.3"
 
 
 allure {
     report {
-        version.set(allureVersion)
+        version.set(allureSelenideVersion)
     }
     adapter {
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
-                adapterVersion.set(allureVersion)
+                adapterVersion.set(allureSelenideVersion)
             }
         }
     }
 }
 
+group = 'ru.maxcong'
+version = '1.0-SNAPSHOT'
+
 dependencies {
     testImplementation(
-            "io.rest-assured:rest-assured:$restAssuredVersion",
-            "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.aspectj:aspectjweaver:$aspectjWeaverVersion",
             "com.codeborne:selenide:$selenideVersion",
-            "org.junit.jupiter:junit-jupiter:5.11.1",
-            'org.assertj:assertj-core:3.26.3',
-            'org.slf4j:slf4j-simple:2.0.16',
-            'io.github.bonigarcia:webdrivermanager:5.5.3',
-            'org.aeonbits.owner:owner:1.0.12',
-            "io.appium:java-client:$appiumVersion"
+            "io.qameta.allure:allure-selenide:$allureSelenideVersion",
+            "io.appium:java-client:$appiumVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "commons-io:commons-io:$commonsIoVersion",
+            "org.assertj:assertj-core:$assertjVersion"
     )
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.11.1')
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Test) {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
+task browserstack(type: Test) {
+    useJUnitPlatform {
+        includeTags("browserstack")
+    }
+}
 
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
+task emulator (type: Test) {
+    useJUnitPlatform {
+        includeTags("emulator")
     }
 }
