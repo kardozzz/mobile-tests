@@ -3,8 +3,8 @@ package helpers;
 import config.BrowserstackDriverConfig;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import models.UploadAppResponseModel;
-import models.UploadedAppsListResponseModel;
+import models.UploadAppRsModel;
+import models.UploadedAppsListRsModel;
 import org.aeonbits.owner.ConfigFactory;
 
 import java.util.List;
@@ -29,8 +29,8 @@ public class Browserstack {
                 .extract().path("automation_session.video_url");
     }
 
-    public UploadAppResponseModel uploadAppToBrowserstack() {
-        UploadAppResponseModel response = given()
+    public UploadAppRsModel uploadAppToBrowserstack() {
+        UploadAppRsModel response = given()
                 .auth().preemptive().basic(config.getBrowserstackUser(), config.getBrowserstackKey())
                 .contentType(ContentType.URLENC)
                 .formParam("url", "https://github.com/wikimedia/apps-android-wikipedia/" +
@@ -41,7 +41,7 @@ public class Browserstack {
                 .then()
                 .statusCode(200)
                 .log().all()
-                .extract().as(UploadAppResponseModel.class);
+                .extract().as(UploadAppRsModel.class);
         return response;
     }
 
@@ -58,10 +58,10 @@ public class Browserstack {
                 .asString();
 
         if (!responseString.contains("No results found")) {
-            List<UploadedAppsListResponseModel> responseJson =
-                    new JsonPath(responseString).getList(".", UploadedAppsListResponseModel.class);
+            List<UploadedAppsListRsModel> responseJson =
+                    new JsonPath(responseString).getList(".", UploadedAppsListRsModel.class);
 
-            for (UploadedAppsListResponseModel app : responseJson) {
+            for (UploadedAppsListRsModel app : responseJson) {
                 if (app.getAppName().equals("app-alpha-universal-release.apk")) {
                     return app.getAppUrl();
                 }

@@ -3,7 +3,7 @@ package models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-public class UploadAppResponseModel {
+public class UploadAppRsModel {
     @JsonProperty("app_url")
     private String appUrl;
 

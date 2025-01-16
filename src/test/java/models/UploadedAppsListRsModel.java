@@ -3,7 +3,7 @@ package models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-public class UploadedAppsListResponseModel {
+public class UploadedAppsListRsModel {
     @JsonProperty("app_name")
     private String appName;
     @JsonProperty("app_version")
