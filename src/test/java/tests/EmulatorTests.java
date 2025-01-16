@@ -8,6 +8,7 @@ import screens.ExploreScreen;
 import screens.LanguageScreen;
 import screens.ReadingListsScreen;
 import screens.components.ContinueButtonComponent;
+import screens.components.SkipButtonComponent;
 
 @DisplayName("Тесты на эмуляторе Android")
 @Tag("emulator")
@@ -18,6 +19,7 @@ public class EmulatorTests extends TestBase {
     private final ExploreScreen exploreScreen = new ExploreScreen();
     private final ReadingListsScreen readingListsScreen = new ReadingListsScreen();
     private final DataAndPrivacyScreen dataAndPrivacyScreen = new DataAndPrivacyScreen();
+    private final SkipButtonComponent skipButtonComponent = new SkipButtonComponent();
 
     @DisplayName("Тест начального экрана")
     @Test
@@ -29,5 +31,12 @@ public class EmulatorTests extends TestBase {
         readingListsScreen.checkJoinWikipediaText();
         continueButtonComponent.clickContinueButton();
         dataAndPrivacyScreen.checkVisibilityOfSecondaryTextView();
+    }
+    @DisplayName("Тест начального экрана")
+    @Test
+    void skipOnboardingScreenTest() {
+        languageScreen.checkVisibilityOfDefaultLanguage();
+        skipButtonComponent.clickSkipButton();
+        exploreScreen.checkOpenExplorePage();
     }
 }

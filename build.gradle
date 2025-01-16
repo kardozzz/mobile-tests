@@ -33,8 +33,6 @@ allure {
     }
 }
 
-group = 'ru.maxcong'
-version = '1.0-SNAPSHOT'
 
 dependencies {
     testImplementation(
@@ -47,7 +45,8 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             "org.aeonbits.owner:owner:$ownerVersion",
             "commons-io:commons-io:$commonsIoVersion",
-            "org.assertj:assertj-core:$assertjVersion"
+            "org.assertj:assertj-core:$assertjVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion"
     )
 }
 
