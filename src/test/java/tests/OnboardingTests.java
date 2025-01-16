@@ -10,9 +10,9 @@ import screens.ReadingListsScreen;
 import screens.components.ContinueButtonComponent;
 import screens.components.SkipButtonComponent;
 
-@DisplayName("Тесты на эмуляторе Android")
-@Tag("emulator")
-public class EmulatorTests extends TestBase {
+@DisplayName("Тесты на онбординг")
+@Tag("mobile")
+public class OnboardingTests extends TestBase {
 
     private final LanguageScreen languageScreen = new LanguageScreen();
     private final ContinueButtonComponent continueButtonComponent = new ContinueButtonComponent();
@@ -32,7 +32,8 @@ public class EmulatorTests extends TestBase {
         continueButtonComponent.clickContinueButton();
         dataAndPrivacyScreen.checkVisibilityOfSecondaryTextView();
     }
-    @DisplayName("Тест начального экрана")
+
+    @DisplayName("Тест пропуска онбординга")
     @Test
     void skipOnboardingScreenTest() {
         languageScreen.checkVisibilityOfDefaultLanguage();

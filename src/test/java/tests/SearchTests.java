@@ -7,9 +7,9 @@ import screens.ErrorScreen;
 import screens.MainScreen;
 import screens.SearchResultScreen;
 
-@DisplayName("Тесты Browserstack")
-@Tag("browserstack")
-public class BrowserstackTests extends TestBase {
+@DisplayName("Тесты на поиск статей")
+@Tag("mobile")
+public class SearchTests extends TestBase {
 
     private final MainScreen mainScreen = new MainScreen();
     private final SearchResultScreen searchResultScreen = new SearchResultScreen();
@@ -22,6 +22,7 @@ public class BrowserstackTests extends TestBase {
         searchResultScreen.checkSearchResult();
     }
 
+    @DisplayName("Тест на не успешный поиск")
     @Test
     void findSpringBootTest() {
         mainScreen.searchQuery("Spring Boot");

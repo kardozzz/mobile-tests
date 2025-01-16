@@ -19,9 +19,10 @@ public class ExploreScreen {
         assertThat(text.contains("Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. " +
                 "\nCustomize the feed to your interests – whether it’s learning about historical events On this day, or rolling the dice with Random."));
     }
+
     @Step("Проверить нахождение на главной странице после скипа")
     public void checkOpenExplorePage() {
         $(IconExplore).shouldBe(Condition.enabled);
         $(wikiLogoOnPage).isDisplayed();
-            }
+    }
 }

@@ -11,8 +11,7 @@ public class LanguageScreen {
     private final SelenideElement defaultLanguageLocator = $(id("org.wikipedia.alpha:id/option_label"));
 
     @Step("Проверить видимость текста языка по умолчанию")
-    public void checkVisibilityOfDefaultLanguage()
-    {
+    public void checkVisibilityOfDefaultLanguage() {
         $(defaultLanguageLocator).shouldBe(Condition.visible);
     }
 }

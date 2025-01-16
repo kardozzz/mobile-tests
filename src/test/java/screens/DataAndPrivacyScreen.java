@@ -11,7 +11,7 @@ public class DataAndPrivacyScreen {
     private final SelenideElement secondaryTextViewLocator = $(id("org.wikipedia.alpha:id/secondaryTextView"));
 
     @Step("Проверить видимость текста под заголовком")
-    public  void checkVisibilityOfSecondaryTextView() {
+    public void checkVisibilityOfSecondaryTextView() {
         $(secondaryTextViewLocator).shouldBe(Condition.visible);
     }
 }
