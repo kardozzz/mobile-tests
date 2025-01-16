@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ErrorScreen {
 
-    private final SelenideElement errorFieldElement = $(id("org.wikipedia.alpha:id/view_wiki_error_text"));
+    private final SelenideElement errorFieldElement = $(id("org.wikipedia.alpha:id/results_text"));
 
     @Step("Проверить, что произошла ошибка")
     public void checkError(String textError) {

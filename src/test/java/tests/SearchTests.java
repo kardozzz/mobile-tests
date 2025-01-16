@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import screens.ErrorScreen;
-import screens.LanguageScreen;
 import screens.MainScreen;
 import screens.SearchResultScreen;
 import screens.components.SkipButtonComponent;
@@ -15,8 +14,8 @@ public class SearchTests extends TestBase {
 
     private final MainScreen mainScreen = new MainScreen();
     private final SearchResultScreen searchResultScreen = new SearchResultScreen();
-    private final ErrorScreen errorScreen = new ErrorScreen();
     private final SkipButtonComponent skipButtonComponent = new SkipButtonComponent();
+    private final ErrorScreen errorScreen = new ErrorScreen();
     @DisplayName("Тест на успешный поиск")
     @Test
     void successfulSearchTest() {
@@ -27,10 +26,10 @@ public class SearchTests extends TestBase {
 
     @DisplayName("Тест на не успешный поиск")
     @Test
-    void findSpringBootTest() {
+    void unSuccessfulSearchTest() {
         skipButtonComponent.clickSkipButton();
-        mainScreen.searchQuery("Spring Boot");
-        searchResultScreen.checkSearchResult();
+        mainScreen.searchQuery("aezakmi");
+        errorScreen.checkError("No results");
 
     }
 
