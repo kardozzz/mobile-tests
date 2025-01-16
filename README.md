@@ -131,5 +131,5 @@
 После завершения сборки, бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с
 результатом.
 <p align="center">
-<img title="Telegram" src="images/screens/TgBOT.png">
+<img title="Telegram" src="images/screens/TgBot.png">
 </p>
