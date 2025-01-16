@@ -48,8 +48,9 @@ dependencies {
             "commons-io:commons-io:$commonsIoVersion",
             "org.assertj:assertj-core:$assertjVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "org.projectlombok:lombok:$lombokVersion"
     )
+    testImplementation "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 }
 
 tasks.withType(Test) {

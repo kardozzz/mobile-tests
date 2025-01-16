@@ -62,7 +62,7 @@ public class Browserstack {
                     new JsonPath(responseString).getList(".", UploadedAppsListResponseModel.class);
 
             for (UploadedAppsListResponseModel app : responseJson) {
-                if (app.getAppId().equals("app-alpha-universal-release.apk")) {
+                if (app.getAppName().equals("app-alpha-universal-release.apk")) {
                     return app.getAppUrl();
                 }
             }
