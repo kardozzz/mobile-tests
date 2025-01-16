@@ -65,14 +65,8 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-task browserstack(type: Test) {
+task mobile_tests(type: Test) {
     useJUnitPlatform {
-        includeTags("browserstack")
-    }
-}
-
-task emulator (type: Test) {
-    useJUnitPlatform {
-        includeTags("emulator")
+        includeTags("mobile")
     }
 }
