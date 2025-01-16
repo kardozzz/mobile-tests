@@ -133,3 +133,10 @@
 <p align="center">
 <img title="Telegram" src="images/screens/tgBot.png">
 </p>
+
+<a id="video"></a>
+## <a name="Видео прохождения тестов">**Видео прохождения тестов**</a>
+
+<p align="center">
+<img title="Selenoid Video" src="images/test_run.gif" width="550" height="360"  alt="video">   
+</p>
