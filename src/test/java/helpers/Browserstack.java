@@ -61,13 +61,13 @@ public class Browserstack {
             List<UploadedAppsListResponseModel> responseJson =
                     new JsonPath(responseString).getList(".", UploadedAppsListResponseModel.class);
 
-            return responseJson.stream()
-                    .filter(app -> "app-alpha-universal-release.apk".equals(app.getAppName()))
-                    .map(UploadedAppsListResponseModel::getAppUrl)
-                    .findFirst()
-                    .orElse(null); // Вернёт null, если нужное приложение не найдено
+            for (UploadedAppsListResponseModel app : responseJson) {
+                if (app.getAppName().equals("app-alpha-universal-release.apk")) {
+                    return app.getAppUrl();
+                }
+            }
         }
-        return uploadAppToBrowserstack().getAppUrl();
 
+        return uploadAppToBrowserstack().getAppUrl();
     }
 }

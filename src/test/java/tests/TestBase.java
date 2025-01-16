@@ -11,8 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
 public class TestBase {
     @BeforeAll
@@ -35,12 +35,13 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
+        Attach attach = new Attach();
         if (System.getProperty("deviceHost").equals("browserstack")) {
             String sessionId = Selenide.sessionId().toString();
-            Attach.addVideo(sessionId);
+            attach.addVideo(sessionId);
         }
         if (System.getProperty("deviceHost").equals("emulation")) {
-            Attach.screenshotAs("Last screenshot");
+            attach.screenshotAs("Last screenshot");
         }
         Attach.pageSource();
         closeWebDriver();
