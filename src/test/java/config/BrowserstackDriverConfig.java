@@ -14,11 +14,9 @@ public interface BrowserstackDriverConfig extends Config {
     String getBrowserstackKey();
 
     @Key("app")
-    @DefaultValue("bs://sample.app")
     String getApp();
 
     @Key("remoteUrl")
-    @DefaultValue("https://hub.browserstack.com/wd/hub")
     String getRemoteUrl();
 
     @Key("device")
@@ -27,4 +25,3 @@ public interface BrowserstackDriverConfig extends Config {
     @Key("os_version")
     String getOsVersion();
 }
-

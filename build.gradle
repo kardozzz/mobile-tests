@@ -16,7 +16,8 @@ def aspectjWeaverVersion = "1.9.22",
     appiumVersion = "8.3.0",
     ownerVersion = "1.0.12",
     commonsIoVersion = '2.14.0',
-    assertjVersion = "3.26.3"
+    assertjVersion = "3.26.3",
+    lombokVersion = "1.18.36"
 
 
 allure {
@@ -46,7 +47,8 @@ dependencies {
             "org.aeonbits.owner:owner:$ownerVersion",
             "commons-io:commons-io:$commonsIoVersion",
             "org.assertj:assertj-core:$assertjVersion",
-            "io.rest-assured:json-schema-validator:$restAssuredVersion"
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "org.projectlombok:lombok:$lombokVersion"
     )
 }
 
