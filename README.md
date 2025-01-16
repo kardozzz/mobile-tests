@@ -1,6 +1,5 @@
 # Проект по автоматизации тестирования мобильного приложения Wikipedia
 
-![WB_logo.jpg](images/reqres_logo.png)
 
 ## :pushpin: Содержание:
 
@@ -77,18 +76,15 @@
 
 При выполнении команды тесты запустятся локально.
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="images/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/C19-Aleksey_Astashkin-reqresIN/build?delay=0sec)
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="images/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/diplom_mobile/)
 
-### Параметры сборки
 
-* <code>BASE_URI</code> – адрес веб приложения.
-* <code>BASE_PATH</code> – контекст метода.
 
 <p align="center">
-<img title="Jenkins Build" src="images/screens/jenkins_build.png">
+<img title="Jenkins Build" src="images/jenkins_build.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/Allure.svg"> [Пример Allure-отчета](https://jenkins.autotests.cloud/job/C19-Aleksey_Astashkin-reqresIN/34/allure/)
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/Allure.svg"> [Пример Allure-отчета](https://jenkins.autotests.cloud/job/diplom_mobile/7/allure/)
 
 #### Главная страница отчета Allure содержит следующие блоки:
 
@@ -99,19 +95,11 @@
 - <code><strong>*CATEGORIES*</strong></code> - отображает распределение неудачных тестов по типам дефектов
 
 <p align="center">
-<img title="Allure Overview" src="images/screens/allure_report.png">
+<img title="Allure Overview" src="images/allure_report.png">
 </p>
 
-### Результат выполнения теста содержит:
 
-- Request с вложением ```Метод запроса, Адрес, Headers, Curl```
-- Response с вложением ```Status code, Headers, Body```
-
-<p align="center">
-<img title="Test Results in Alure" src="images/screens/allure_suites.png">
-</p>
-
-## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="images/Allure_TO.svg"> [Интеграция с Allure TestOps](https://allure.autotests.cloud/project/3457/launches)
+## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="images/Allure_TO.svg"> [Интеграция с Allure TestOps](https://allure.autotests.cloud/project/4567/launches)
 
 #### На вкладке Dashboards отображается:
 
@@ -120,7 +108,7 @@
 - Результаты запусков/прохождения тестов в графике по датам
 
 <p align="center">
-<img title="Allure TestOps DashBoard" src="images/screens/dashboardTestOps.png">
+<img title="Allure TestOps DashBoard" src="images/testOpsDashBord.png">
 </p>
 
 #### На вкладке Launches можно увидеть:
@@ -129,17 +117,12 @@
 - Результаты запуска тестов из Allure TestOps
 
 <p align="center">
-<img title="Allure TestOps DashBoard" src="images/screens/launchesTestOps.png">
+<img title="Allure TestOps DashBoard" src="images/testOpsRun.png">
 </p>
-
-Результаты выполнения отдельных тестов:
-
-- Шаги теста
-- Request с вложением ```Метод запроса, Адрес, Headers, Curl```
-- Response с вложением ```Status code, Headers, Body```
+``
 
 <p align="center">
-<img title="Allure TestOps DashBoard" src="images/screens/resultTests.png">
+<img title="Allure TestOps DashBoard" src="images/testOpsResultTests.png">
 </p>
 
 
