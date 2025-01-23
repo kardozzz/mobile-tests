@@ -2,7 +2,7 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackDriverConfig;
-import helpers.Browserstack;
+import helpers.BrowserstackFileHelper;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -21,7 +21,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         this.config = ConfigFactory.create(BrowserstackDriverConfig.class, System.getProperties());
     }
 
-    Browserstack browserstack = new Browserstack();
+    BrowserstackFileHelper browserstackFileHelper = new BrowserstackFileHelper();
 
     @Nonnull
     @Override
@@ -30,7 +30,7 @@ public class BrowserstackDriver implements WebDriverProvider {
 
         caps.setCapability("browserstack.user", config.getBrowserstackUser());
         caps.setCapability("browserstack.key", config.getBrowserstackKey());
-        caps.setCapability("app", browserstack.checkUploadedAppsList());
+        caps.setCapability("app", browserstackFileHelper.checkUploadedAppsList());
         caps.setCapability("device", config.getDevice());
         caps.setCapability("os_version", config.getOsVersion());
 

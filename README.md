@@ -31,9 +31,10 @@
 <a href="https://junit.org/junit5/">
 <img width="6%" title="JUnit5" src="images/Junit5.svg">
 </a>
-<a href="https://rest-assured.io/">
-<img width="6%" title="Selenide" src="images/RestAssured.svg">
-</a>
+
+<a href="https://appium.io/">
+<img src="images/Appium.svg" width="6%" title="Appium" alt="Appium"/>
+</a> 
 <a href="https://github.com/">
 <img width="6%" title="GitHub" src="images/GitHub.svg">
 </a>
@@ -45,8 +46,7 @@
 </a>
 </p>
 
-- Тесты в данном проекте написаны на языке <code>Java</code> с использованием фреймворка для
-  тестирования [RestAssured](https://rest-assured.io/)
+- Тесты в данном проекте написаны на языке Java с использованием фреймворка для автоматизации мобильных приложений [Appium](https://appium.io/)
 - В качестве сборщика был использован [Gradle](https://gradle.org/)
 - [JUnit5](https://junit.org/junit5/) задействован в качестве фреймворка модульного тестирования
 - Для удаленного запуска реализована джоба в [jenkins](https://www.jenkins.io/) с формированием Allure-отчета и

@@ -11,7 +11,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class Browserstack {
+public class BrowserstackFileHelper {
 
     private static final BrowserstackDriverConfig config =
             ConfigFactory.create(BrowserstackDriverConfig.class, System.getProperties());
