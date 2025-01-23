@@ -5,7 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 public enum ConfigReader {
     INSTANCE;
 
-    private static final BrowserstackDriverConfig browserstackConfig =
+    private static final BrowserstackDriverConfig config =
             ConfigFactory.create(
                     BrowserstackDriverConfig.class,
                     System.getProperties()
@@ -17,7 +17,7 @@ public enum ConfigReader {
             );
 
     public BrowserstackDriverConfig readBrowserstackConfig() {
-        return browserstackConfig;
+        return config;
     }
 
     public AuthWikiConfig readAuthWikiConfig() {
