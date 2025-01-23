@@ -33,6 +33,7 @@ public class BrowserstackDriver implements WebDriverProvider {
 
         caps.setCapability("browserstack.user", authWikiConfig.user());
         caps.setCapability("browserstack.key", authWikiConfig.key());
+
         caps.setCapability("app", browserstackFileHelper.checkUploadedAppsList());
         caps.setCapability("device", config.getDevice());
         caps.setCapability("os_version", config.getOsVersion());

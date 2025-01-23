@@ -7,8 +7,6 @@ import org.aeonbits.owner.Config;
 })
 public interface BrowserstackDriverConfig extends Config {
 
-
-
     @Key("remoteUrl")
     String getRemoteUrl();
 
