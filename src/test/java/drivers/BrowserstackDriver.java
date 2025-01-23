@@ -1,9 +1,10 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.AuthWikiConfig;
 import config.BrowserstackDriverConfig;
+import config.ConfigReader;
 import helpers.BrowserstackFileHelper;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -16,9 +17,11 @@ import java.net.URL;
 public class BrowserstackDriver implements WebDriverProvider {
 
     private final BrowserstackDriverConfig config;
+    private final AuthWikiConfig authWikiConfig;
 
     public BrowserstackDriver() {
-        this.config = ConfigFactory.create(BrowserstackDriverConfig.class, System.getProperties());
+        this.config = ConfigReader.INSTANCE.readBrowserstackConfig();
+        this.authWikiConfig = ConfigReader.INSTANCE.readAuthWikiConfig();
     }
 
     BrowserstackFileHelper browserstackFileHelper = new BrowserstackFileHelper();
@@ -28,8 +31,8 @@ public class BrowserstackDriver implements WebDriverProvider {
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities caps = new MutableCapabilities();
 
-        caps.setCapability("browserstack.user", config.getBrowserstackUser());
-        caps.setCapability("browserstack.key", config.getBrowserstackKey());
+        caps.setCapability("browserstack.user", authWikiConfig.user());
+        caps.setCapability("browserstack.key", authWikiConfig.key());
         caps.setCapability("app", browserstackFileHelper.checkUploadedAppsList());
         caps.setCapability("device", config.getDevice());
         caps.setCapability("os_version", config.getOsVersion());
