@@ -24,7 +24,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         this.authWikiConfig = ConfigReader.INSTANCE.readAuthWikiConfig();
     }
 
-    BrowserstackFileHelper browserstackFileHelper = new BrowserstackFileHelper();
+    public BrowserstackFileHelper browserstackFileHelper = new BrowserstackFileHelper();
 
     @Nonnull
     @Override
