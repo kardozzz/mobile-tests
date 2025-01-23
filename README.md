@@ -66,7 +66,8 @@
 
 - ```emulator``` -Запуск тестов на эмуляторе.
 - ```browserstack``` -Запуск тестов на browserstack.
-
+> Для локального запуска через browserstack потребуется создать auth.properties в src/test/properties и указать name и key пользователя.
+> Для локального запуска через emulator потребуется выполнить установку и [настройку](https://autotest.how/appium-setup-for-local-android-tutorial-md) эмулятора
 ### Запуск тестов из терминала
 
 ```
