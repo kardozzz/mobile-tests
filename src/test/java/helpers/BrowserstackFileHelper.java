@@ -1,6 +1,6 @@
 package helpers;
 
-import config.BrowserstackDriverConfig;
+import config.AuthWikiConfig;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import models.UploadAppRsModel;
@@ -13,14 +13,14 @@ import static io.restassured.RestAssured.given;
 
 public class BrowserstackFileHelper {
 
-    private static final BrowserstackDriverConfig config =
-            ConfigFactory.create(BrowserstackDriverConfig.class, System.getProperties());
+    private static final AuthWikiConfig authWikiConfig =
+            ConfigFactory.create(AuthWikiConfig.class, System.getProperties());
 
     public static String videoUrl(String sessionId) {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(config.getBrowserstackUser(), config.getBrowserstackKey())
+                .auth().basic(authWikiConfig.user(), authWikiConfig.key())
                 .get(url)
                 .then()
                 .log().status()
@@ -31,7 +31,7 @@ public class BrowserstackFileHelper {
 
     public UploadAppRsModel uploadAppToBrowserstack() {
         UploadAppRsModel response = given()
-                .auth().preemptive().basic(config.getBrowserstackUser(), config.getBrowserstackKey())
+                .auth().preemptive().basic(authWikiConfig.user(), authWikiConfig.key())
                 .contentType(ContentType.URLENC)
                 .formParam("url", "https://github.com/wikimedia/apps-android-wikipedia/" +
                         "releases/download/latest/app-alpha-universal-release.apk")
@@ -48,7 +48,7 @@ public class BrowserstackFileHelper {
     public String checkUploadedAppsList() {
 
         String responseString = given()
-                .auth().preemptive().basic(config.getBrowserstackUser(), config.getBrowserstackKey())
+                .auth().preemptive().basic(authWikiConfig.user(), authWikiConfig.key())
                 .when()
                 .get("https://api-cloud.browserstack.com/app-automate/recent_apps")
                 .then()
